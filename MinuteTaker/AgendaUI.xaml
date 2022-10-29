@@ -1,0 +1,75 @@
+﻿<Window x:Class="MinuteTaker.AgendaUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Agenda" Height="530" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Title:" FontWeight="Bold" VerticalAlignment="Center" Margin="5" Padding="4" />
+        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" x:Name="tbTitle" VerticalAlignment="Center" Margin="5" Padding="5" />
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Date:" FontWeight="Bold" VerticalAlignment="Center" Margin="5" Padding="4" />
+        <xctk:DateTimePicker Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" x:Name="dpDate"
+                             VerticalAlignment="Center" FontWeight="Bold" Margin="5" Padding="4" />
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Location:" FontWeight="Bold" Margin="5" Padding="4" VerticalAlignment="Center" />
+        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" x:Name="tbLocation" Margin="5" Padding="5" Width="200" VerticalAlignment="Center" HorizontalAlignment="Left" />
+
+        <Label  Grid.Row="3" Grid.Column="0" Content="Group:" FontWeight="Bold" Margin="5" Padding="4" VerticalAlignment="Center" />
+        <ComboBox  Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"  x:Name="cbGang" Margin="5" Padding="5"   Width="200" VerticalAlignment="Center" />
+
+        <Button  Grid.Row="4" Grid.Column="0"   x:Name="btnAddAgenda" FontWeight="Bold" Content="Add" Margin="5" Padding="4"  VerticalAlignment="Center" Click="btnAddAgenda_Click" />
+        <Button  Grid.Row="4" Grid.Column="1"   x:Name="btnUpdateAgenda" FontWeight="Bold" Content="Update" Margin="5" Padding="4"  VerticalAlignment="Center" Click="btnUpdateAgenda_Click" />
+        <Button  Grid.Row="4" Grid.Column="2"   x:Name="btnDeleteAgenda" FontWeight="Bold" Content="Delete" Margin="5" Padding="4"  VerticalAlignment="Center" Click="btnDeleteAgenda_Click" />
+        <Button  Grid.Row="4" Grid.Column="3"   x:Name="btnClearAgenda" FontWeight="Bold" Content="Clear" Margin="5" Padding="4"  VerticalAlignment="Center" Click="btnClearAgenda_Click" />
+
+        <Label  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Content="Topic" HorizontalAlignment="Center"  VerticalAlignment="Center" FontWeight="Bold" FontSize="24" />
+
+        <Label  Grid.Row="6" Grid.Column="0" Content="Number:" FontWeight="Bold" VerticalAlignment="Center" />
+        <TextBox  Grid.Row="6" Grid.Column="1"   x:Name="tbTopicNbr" Width="50" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Padding="5" PreviewTextInput="tbNumberValidation" />
+
+        <Label  Grid.Row="7" Grid.Column="0"  Content="Description:" FontWeight="Bold" VerticalAlignment="Center" />
+        <TextBox  Grid.Row="7" Grid.Column="1"   Grid.ColumnSpan="3"  x:Name="tbTopicDesc" Width="250" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Padding="5" />
+
+        <Button  Grid.Row="8" Grid.Column="0"  x:Name="btnAddTopic" FontWeight="Bold" Content="Add" Margin="5" Padding="4"  VerticalAlignment="Center"  Click="btnAddTopic_Click" />
+        <Button  Grid.Row="8" Grid.Column="1"  x:Name="btnUpdateTopic" FontWeight="Bold" Content="Update" Margin="5" Padding="4"  VerticalAlignment="Center"  Click="btnUpdateTopic_Click" />
+        <Button  Grid.Row="8" Grid.Column="2"  x:Name="btnRemoveTopic" FontWeight="Bold" Content="Remove" Margin="5" Padding="4"  VerticalAlignment="Center" Click="btnRemoveTopic_Click" />
+        <Button  Grid.Row="8" Grid.Column="3"  x:Name="btnClearTopic" FontWeight="Bold" Content="Clear" Margin="5" Padding="4"  VerticalAlignment="Center" Click="btnClearTopic_Click" />
+
+        <!-- Second Column -->
+        <StackPanel Grid.Row="0" Grid.Column="4" Grid.RowSpan="9">
+
+            <Label  Content="Agenda's" FontWeight="Bold" />
+            <ListBox  x:Name="lbAgendaList" Height="110" Margin="10" Padding="5"
+                     d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="lbAgendaList_Selected" />
+
+            <Label  Content="Topic's" FontWeight="Bold" />
+            <ListBox  x:Name="lbTopicList" Height="192" Margin="10" Padding="5"
+                     d:ItemsSource="{d:SampleData ItemCount=9}" SelectionChanged="lbTopicList_Selected" />
+
+            <Button x:Name="btnReport" Content="Report" FontWeight="Bold" Margin="5" Padding="4"  VerticalAlignment="Center" Click="btnReport_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,59 @@
+﻿<Window x:Class="MinuteTaker.AgendaReport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Agenda Report" Height="650" Width="850" WindowStartupLocation="CenterScreen">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="From User:" Width="85" FontWeight="Bold" />
+                <TextBox x:Name="tbUserName" Width="710" VerticalAlignment="Center" DataContextChanged="DataChanged"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Password:" Width="85" FontWeight="Bold" />
+                <PasswordBox x:Name="pbPassword" Width="710" PasswordChar="*" VerticalAlignment="Center" DataContextChanged="DataChanged"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="From eMail:" Width="85" FontWeight="Bold" />
+                <TextBox x:Name="tbUseremail" Width="710" VerticalAlignment="Center" DataContextChanged="DataChanged"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Subject:" Width="85" FontWeight="Bold" />
+                <TextBox x:Name="tbSubject" Width="710" VerticalAlignment="Center" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Message:" Width="85" FontWeight="Bold" />
+                <TextBox x:Name="tbBody" Height="50" Width="710" TextWrapping="Wrap" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Attachment:" Width="85" FontWeight="Bold" />
+                <TextBox x:Name="tbFilename"  Width="710" IsReadOnly="True"
+                       Foreground="Red" FontStyle="Italic"
+                       MouseDoubleClick="lbFilename_MouseDoubleClick" TextDecorations="Underline"/>
+            </StackPanel>
+
+            <RichTextBox x:Name="RTBox" IsReadOnly="True" FontFamily="Calibri" FontSize="12" VerticalScrollBarVisibility="Visible" />
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="SMTP:" Width="85" FontWeight="Bold" />
+                <ComboBox x:Name="cbSmtp" Width="150" VerticalAlignment="Center" SelectionChanged="cbSmtp_SelectionChanged" />
+                <Label Content="Host:" Width="45" FontWeight="Bold" />
+                <TextBox x:Name="tbHost" Width="150" VerticalAlignment="Center" />
+                <Label Content="Port:" Width="45" FontWeight="Bold" />
+                <TextBox x:Name="tbPort" Width="150" VerticalAlignment="Center" />
+                <Label Content="SSL:" Width="45" FontWeight="Bold" />
+                <TextBox x:Name="tbSSL" Width="50" VerticalAlignment="Center" />
+            </StackPanel>
+
+            <Button   x:Name="btnSend" Content="Send" FontWeight="Bold" Margin="5" Padding="4"  VerticalAlignment="Center" Click="btnSend_Click" />
+        </StackPanel>
+    </ScrollViewer>
+</Window>

@@ -1,0 +1,17 @@
+﻿<Window x:Class="MinuteTaker.SelectorUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MinuteTaker"
+        mc:Ignorable="d"
+        Title="Minute Selector" Height="450" Width="300" WindowStartupLocation="CenterScreen">
+   
+    <StackPanel>
+        <ListBox  x:Name="lbMinutesList" Height="310" Margin="10" Padding="5"
+                     d:ItemsSource="{d:SampleData ItemCount=15}"/>
+        
+        <Button x:Name="btnOpen" Content="Open" FontFamily="Book Antiqua" FontSize="18" FontWeight="Bold" Margin="10" Padding="10" Click="btnOpen_Click"/>
+    </StackPanel>
+    
+</Window>

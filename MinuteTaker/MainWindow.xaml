@@ -1,0 +1,30 @@
+﻿<Window x:Class="MinuteTaker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MinuteTaker"
+        mc:Ignorable="d"
+        Title="Minute Taker" Height="380" Width="320" WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="10" >
+        <Button x:Name="btnTaker" Content="Minute Taker" FontFamily="Book Antiqua" FontSize="18" FontWeight="Bold" Margin="10" Padding="10" Click="btnTaker_Click"/>
+        <Button x:Name="btnAgenda" Content="Agenda" FontFamily="Book Antiqua" FontSize="18" FontWeight="Bold" Margin="10" Padding="10" Click="btnAgenda_Click"/>
+        <Button x:Name="btnGroups" Content="Groups" FontFamily="Book Antiqua" FontSize="18" FontWeight="Bold" Margin="10" Padding="10" Click="btnGroups_Click"/>
+        <Button x:Name="btnPeople" Content="People" FontFamily="Book Antiqua" FontSize="18" FontWeight="Bold" Margin="10" Padding="10" Click="btnPeople_Click"/>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnArchive" Grid.Column="0" ToolTip="Archive" Click="btnArchive_Click" Margin="10" Padding="5">
+                <fa:ImageAwesome Icon="Archive" Width="15" />
+            </Button>
+
+            <Button x:Name="btnInfo" Grid.Column="1" ToolTip="Information" Click="btnInfo_Click" Margin="10" Padding="5">
+                <fa:ImageAwesome Icon="Info" Width="15" />
+            </Button>
+        </Grid>
+    </StackPanel>
+</Window>

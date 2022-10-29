@@ -1,0 +1,41 @@
+﻿<Window x:Class="MinuteTaker.MinuteUI2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MinuteUI2" Height="520" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+        <!--Column 0-->
+        <Label Grid.Row="0" Grid.Column="0" Content="Topics" FontWeight="Bold" />
+        <ListBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" x:Name="lbTopicList" 
+                 Margin="10,10,10,0" Padding="5" VerticalAlignment="Top" Height="400"
+                     d:ItemsSource="{d:SampleData ItemCount=20}" 
+                 SelectionChanged="lbTopicList_Selected" />
+        <!--Column 1-->
+        <Label Grid.Row="0" Grid.Column="1" Content="Minutes" FontWeight="Bold" />
+        <RichTextBox x:Name="rtfDetail"  Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"
+                     SelectionChanged="rtfDetail_SelectionChanged"/>
+
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+            <Button x:Name="btnSave" Content="Save" Margin="5" Padding="5" Width="100" Click="btnSave_Click"/>
+            <Button x:Name="btnReload" Content="Reload" Margin="5" Padding="5" Width="100" Click="btnReload_Click"/>
+            <Button x:Name="btnUpdate" Content="Update Minutes" Margin="5" Padding="5" Width="100" Click="btnUpdate_Click"/>
+            <Button x:Name="btnReport" Content="Report Minutes" Margin="5" Padding="5" Width="100" Click="btnReporte_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

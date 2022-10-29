@@ -1,0 +1,91 @@
+﻿<Window x:Class="MinuteTaker.MinuteUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MinuteUI" Height="530" Width="800" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <TextBox x:Name="tbTitle" Margin="5" Padding="5" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" IsReadOnly="True"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+            <Label Content="Location:" FontWeight="Bold" VerticalAlignment="Center" Padding="5"/>
+            <TextBox x:Name="tbLocation"  Padding="5" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" IsReadOnly="True"/>
+        </StackPanel>
+        
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Date:" FontWeight="Bold" HorizontalAlignment="Center" />
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="tbDate" FontSize="16" IsReadOnly="True"/>
+            <Label Grid.Row="0" Grid.Column="2" Content="Time:" FontWeight="Bold" HorizontalAlignment="Center" />
+            <TextBox Grid.Row="0" Grid.Column="3" x:Name="tbTime" FontSize="16" IsReadOnly="True"/>
+            <Button Grid.Row="1" Grid.Column="0" x:Name="btnAddMbr" Content="Add" Margin="5" Padding="5" FontWeight="Bold" Click="btnAddMbr_Click"/>
+            <Button Grid.Row="1" Grid.Column="1" x:Name="btnClrMbr" Content="Clear" Margin="5" Padding="5" FontWeight="Bold" Click="btnClrMbr_Click"/>
+        </Grid>
+
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Participants" FontWeight="Bold" HorizontalAlignment="Center" />
+            <ListBox Grid.Row="1" Grid.Column="0" x:Name="lbPartList" Height="220" Margin="10" Padding="5"
+                     d:ItemsSource="{d:SampleData ItemCount=10}"  />
+
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Margin="10" VerticalAlignment="Center">
+                <Button   x:Name="btnPartOut"  FontWeight="Bold"  Padding="5"  Click="btnPartOut_Click">
+                    <fa:ImageAwesome Icon="AngleDoubleRight" Width="25" />
+                </Button>
+                <Button   x:Name="btnPartin"  FontWeight="Bold" Padding="5" Click="btnPartIn_Click">
+                    <fa:ImageAwesome Icon="AngleDoubleLeft" Width="25" />
+                </Button>
+            </StackPanel>
+            
+            <Label Grid.Row="0" Grid.Column="2" Content="Non-Attendees" FontWeight="Bold" HorizontalAlignment="Center" />
+            <ListBox Grid.Row="1" Grid.Column="2" x:Name="lbNoShowsList" Height="220" Margin="10" Padding="5"
+                     d:ItemsSource="{d:SampleData ItemCount=10}"  />
+
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="3" Margin="10" VerticalAlignment="Center">
+                <Button   x:Name="btnNonOut"  FontWeight="Bold"  Padding="5"  Click="btnNonOut_Click">
+                    <fa:ImageAwesome Icon="AngleDoubleRight" Width="25" />
+                </Button>
+                <Button   x:Name="btnNonin"  FontWeight="Bold" Padding="5" Click="btnNonIn_Click">
+                    <fa:ImageAwesome Icon="AngleDoubleLeft" Width="25" />
+                </Button>
+            </StackPanel>
+            
+            <Label Grid.Row="0" Grid.Column="4" Content="Apologies" FontWeight="Bold" HorizontalAlignment="Center" />
+            <ListBox Grid.Row="1" Grid.Column="4" x:Name="lbApoloList" Height="220" Margin="10" Padding="5"
+                     d:ItemsSource="{d:SampleData ItemCount=10}"  />
+        </Grid>
+
+            <CheckBox x:Name="cbArchive" Content="Completed" FontWeight="Bold" HorizontalAlignment="Center" Checked="cbArchive_Checked" Unchecked="cbArchive_Unchecked"/>
+        
+        <Button x:Name="btnTake" Content="Take Minutes" FontWeight="Bold" Margin="5" Padding="5" Click="btnTake_Click"/>
+    </StackPanel>
+</Window>

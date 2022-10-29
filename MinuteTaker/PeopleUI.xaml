@@ -1,0 +1,43 @@
+﻿<Window x:Class="MinuteTaker.PeopleUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MinuteTaker"
+        mc:Ignorable="d"
+        Title="People" Height="450" Width="800"  WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <StackPanel Orientation="Horizontal">
+            <Label Content="Id" FontWeight="Bold" Margin="5" Padding="5"/>
+            <Label x:Name="lblPersonId"  Margin="5" Padding="5"/>
+            </StackPanel>
+            
+            <Label Content="First Name" FontWeight="Bold" Margin="5" Padding="5"/>
+            <TextBox x:Name="tbPersonFirst" Margin="5" Padding="5"/>
+            <Label Content="Last Name" FontWeight="Bold" Margin="5" Padding="5"/>
+            <TextBox x:Name="tbPersonLast" Margin="5" Padding="5"/>
+            <Label Content="Email Address" FontWeight="Bold" Margin="5" Padding="5"/>
+            <TextBox x:Name="tbPersonEmail" Margin="5" Padding="5"/>
+            <Label Content="Phone Number" FontWeight="Bold" Margin="5" Padding="5"/>
+            <TextBox x:Name="tbPersonPhone" Margin="5" Padding="5"/>
+            <StackPanel Orientation="Horizontal" Margin="5" >
+                <Button x:Name="btnAddPerson" Content="Add" Margin="5" Padding="5" Width="115" Click="btnAddPerson_Click"/>
+                <Button x:Name="btnUpdatePerson" Content="Update" Margin="5" Padding="5" Width="115" Click="btnUpdatePerson_Click"/>
+                <Button x:Name="btnDeletePerson" Content="Delete" Margin="5" Padding="5" Width="115" Click="btnDeletePerson_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <Label Content="Person List" FontWeight="Bold"/>
+            <ListBox x:Name="lbPersonList" Height="370" Margin="10" Padding="5" 
+                     d:ItemsSource="{d:SampleData ItemCount=17}" SelectionChanged="lbPersonList_Selected" />
+        </StackPanel>
+
+    </Grid>
+</Window>
